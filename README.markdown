@@ -1,6 +1,14 @@
 Try Redis
 =========
 
+---
+
+**try.redis is unmaintained since March 2018. 
+The online instance will be kept running, but won't receive updates.**
+
+---
+
+
 [Try Redis](http://try.redis.io) is a demonstration of the Redis data structure server.
 
 ### Info
