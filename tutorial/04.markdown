@@ -1,5 +1,7 @@
 Redis can be told that a key should only exist for a certain length of time.
-This is accomplished with the [EXPIRE](#help) and [TTL](#help) commands.
+This is accomplished with the [EXPIRE](#help) and [TTL](#help) commands,
+and by the similar [PEXPIRE](#help) and [PTTL](#help) commands that
+operate using time in milliseconds instead of seconds.
 
 <pre><code>
     <a href="#run">SET resource:lock "Redis Demo"</a>
@@ -25,5 +27,23 @@ that if you [SET](#help) a key, its [TTL](#help) will be reset.
     <a href="#run">EXPIRE resource:lock 120</a>
     <a href="#run">TTL resource:lock</a> => 119
     <a href="#run">SET resource:lock "Redis Demo 2"</a>
+    <a href="#run">TTL resource:lock</a> => -1
+</code></pre>
+
+The [SET](#help) command is actually able to accept further arguments in order to
+directly set a time to live (TTL) to a key, so you can alter the value of a key
+and set its TTL at the same time in a single atomic operation:
+
+<pre><code>
+    <a href="#run">SET resource:lock "Redis Demo 3" EX 5</a>
+    <a href="#run">TTL resource:lock</a> => 5
+</code></pre>
+
+It is also possible to cancel the time to live of a key removing the expire and
+making the key permanent again.
+
+<pre><code>
+    <a href="#run">SET resource:lock "Redis Demo 3" EX 5</a>
+    <a href="#run">PRESIST resource:lock</a>
     <a href="#run">TTL resource:lock</a> => -1
 </code></pre>

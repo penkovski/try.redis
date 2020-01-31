@@ -25,7 +25,6 @@ def test?
   ENV['RACK_ENV'] == 'test'
 end
 
-
 class TryRedis < Sinatra::Base
   #see the logging for development mode
   configure :development do

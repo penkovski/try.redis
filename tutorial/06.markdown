@@ -1,7 +1,18 @@
-[LLEN](#help) returns the current length of the list.
+Both [RPUSH](#help) and [LPUSH](#help) commands are variadic, so you can specify multiple elements
+in the same command execution.
 
 <pre><code>
-    <a href="#run">LLEN friends</a> => 3
+    <a href="#run">RPUSH friends 1 2 3</a> => 6
+</code></pre>
+
+<span class="tip">
+Tip: RPUSH and LPUSH return the total length of the list after the operation.
+</span>
+
+You can also use [LLEN](#help) to obtain the current length of the list.
+
+<pre><code>
+    <a href="#run">LLEN friends</a> => 6
 </code></pre>
 
 [LPOP](#help) removes the first element from the list and returns it.
@@ -13,12 +24,12 @@
 [RPOP](#help) removes the last element from the list and returns it.
 
 <pre><code>
-    <a href="#run">RPOP friends</a> => "Bob"
+    <a href="#run">RPOP friends</a> => "3"
 </code></pre>
 
-Note that the list now only has one element:
+Note that the list now only has four element:
 
 <pre><code>
-    <a href="#run">LLEN friends</a> => 1
-    <a href="#run">LRANGE friends 0 -1</a> => 1) "Alice"
+    <a href="#run">LLEN friends</a> => 4
+    <a href="#run">LRANGE friends 0 -1</a> => 1) "Alice" 2) "Bob" 3) "1" 4) "2"
 </code></pre>

@@ -1,7 +1,7 @@
 #!/usr/bin/env puma
 
 stage           = ENV['RACK_ENV']
-shared_path     = '/home/tryredis/try.redis/shared'
+shared_path     = '/tmp/tryredis/try.redis/shared'
 puma_pid        = "#{shared_path}/pids/puma.pid"
 puma_sock       = "unix://#{shared_path}/sockets/puma.sock"
 puma_control    = "unix://#{shared_path}/sockets/pumactl.sock"
