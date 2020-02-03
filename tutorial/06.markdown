@@ -1,39 +1,11 @@
-Both [RPUSH](#help) and [LPUSH](#help) commands are variadic, so you can specify multiple elements in the same command execution.
+[LRANGE](#help) gives a subset of the list. It takes the index of the first element
+you want to retrieve as its first parameter and the index of the last element
+you want to retrieve as its second parameter. A value of -1 for the second
+parameter means to retrieve elements until the end of the list, -2 means to
+include up to the penultimate, and so forth.
 
 <pre><code>
-    <a href="#run">RPUSH friends 1 2 3</a> => 6
-</code></pre>
-
-<span class="tip">
-Tip: RPUSH and LPUSH return the total length of the list after the operation.
-</span>
-
-You can also use [LLEN](#help) to obtain the current length of the list.
-
-<pre><code>
-    <a href="#run">LLEN friends</a> => 6
-</code></pre>
-
-So far we explored the commands that let you add elements to the list,
-and [LRANGE](#help) that let you inspect ranges of the list. A fundamental
-functionality of Redis lists is the ability to remove, and return to the
-client at the same time, elements in the head or the tail of the list.
-
-[LPOP](#help) removes the first element from the list and returns it.
-
-<pre><code>
-    <a href="#run">LPOP friends</a> => "Sam"
-</code></pre>
-
-[RPOP](#help) removes the last element from the list and returns it.
-
-<pre><code>
-    <a href="#run">RPOP friends</a> => "3"
-</code></pre>
-
-Note that the list now only has four element:
-
-<pre><code>
-    <a href="#run">LLEN friends</a> => 4
-    <a href="#run">LRANGE friends 0 -1</a> => 1) "Alice" 2) "Bob" 3) "1" 4) "2"
+    <a href="#run">LRANGE friends 0 -1</a> => 1) "Sam", 2) "Alice", 3) "Bob"
+    <a href="#run">LRANGE friends 0 1</a> => 1) "Sam", 2) "Alice"
+    <a href="#run">LRANGE friends 1 2</a> => 1) "Alice", 2) "Bob"
 </code></pre>

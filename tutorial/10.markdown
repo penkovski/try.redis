@@ -1,31 +1,20 @@
-Simple strings, sets and sorted sets already get a lot done but there is one more data type
-Redis can handle: Hashes.
-
-Hashes are maps between string fields and string values, so they are the
-perfect data type to represent objects (eg: A User with a number of fields like
-name, surname, age, and so forth):
+[SISMEMBER](#help) tests if the given value is in the set. It returns *1* if the value is there and *0* if it is not.
 
 <pre></code>
-    <a href="#run">HSET user:1000 name "John Smith"</a>
-    <a href="#run">HSET user:1000 email "john.smith@example.com"</a>
-    <a href="#run">HSET user:1000 password "s3cret"</a>
+    <a href="#run">SISMEMBER superpowers "flight"</a> => 1
+    <a href="#run">SISMEMBER superpowers "reflexes"</a> => 0
 </code></pre>
 
-To get back the saved data use [HGETALL](#help):
+[SMEMBERS](#help) returns a list of all the members of this set.
 
 <pre></code>
-    <a href="#run">HGETALL user:1000</a>
+    <a href="#run">SMEMBERS superpowers</a> => 1) "flight", 2) "x-ray vision"
 </code></pre>
 
-You can also set multiple fields at once:
+[SUNION](#help) combines two or more sets and returns the list of all elements.
 
 <pre></code>
-    <a href="#run">HMSET user:1001 name "Mary Jones" password "hidden" email "mjones@example.com"</a>
+    <a href="#run">SADD birdpowers "pecking"</a>
+    <a href="#run">SADD birdpowers "flight"</a>
+    <a href="#run">SUNION superpowers birdpowers</a> => 1) "pecking", 2) "x-ray vision", 3) "flight"
 </code></pre>
-
-If you only need a single field value that is possible as well:
-
-<pre></code>
-    <a href="#run">HGET user:1001 name</a> => "Mary Jones"
-</code></pre>
-

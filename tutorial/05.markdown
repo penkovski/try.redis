@@ -1,14 +1,9 @@
 Redis also supports several more complex data structures. The first one we'll
 look at is a list.  A list is a series of ordered values.  Some of the
-important commands for interacting with lists are [RPUSH](#help), [LPUSH](#help), [LLEN](#help),
-[LRANGE](#help), [LPOP](#help), and [RPOP](#help).  You can immediately begin working with a key as
-a list, as long as it doesn't already exist as a different type.
+important commands for interacting with lists are [RPUSH](#help), [LPUSH](#help), [LLEN](#help), [LRANGE](#help), [LPOP](#help), and [RPOP](#help).  You can immediately begin working with a key as a list, as long as it doesn't already exist as a different type.
 
 This concept is generally true for every Redis data structure: you don't create
-a key first, and add things to it later, but you can just directly use the command
-in order to add new elements. As side effect the key will be create if it did not
-exist. Similarly keys that will result empty after executing some command will
-automatically be removed from the key space.
+a key first, and add things to it later, but you can just directly use the command in order to add new elements. As side effect the key will be create if it did not exist. Similarly keys that will result empty after executing some command will automatically be removed from the key space.
 
 [RPUSH](#help) puts the new element at the end of the list.
 
@@ -23,14 +18,4 @@ automatically be removed from the key space.
     <a href="#run">LPUSH friends "Sam"</a>
 </code></pre>
 
-[LRANGE](#help) gives a subset of the list. It takes the index of the first element
-you want to retrieve as its first parameter and the index of the last element
-you want to retrieve as its second parameter. A value of -1 for the second
-parameter means to retrieve elements until the end of the list, -2 means to
-include up to the penultimate, and so forth.
 
-<pre><code>
-    <a href="#run">LRANGE friends 0 -1</a> => 1) "Sam", 2) "Alice", 3) "Bob"
-    <a href="#run">LRANGE friends 0 1</a> => 1) "Sam", 2) "Alice"
-    <a href="#run">LRANGE friends 1 2</a> => 1) "Alice", 2) "Bob"
-</code></pre>

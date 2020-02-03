@@ -1,20 +1,16 @@
-[SISMEMBER](#help) tests if the given value is in the set. It returns *1* if the value is there and *0* if it is not.
+Both [RPUSH](#help) and [LPUSH](#help) commands are variadic, so you can specify multiple elements in the same command execution.
 
-<pre></code>
-    <a href="#run">SISMEMBER superpowers "flight"</a> => 1
-    <a href="#run">SISMEMBER superpowers "reflexes"</a> => 0
+<pre><code>
+    <a href="#run">RPUSH friends 1 2 3</a> => 6
 </code></pre>
 
-[SMEMBERS](#help) returns a list of all the members of this set.
+<span class="tip">
+Tip: RPUSH and LPUSH return the total length of the list after the operation.
+</span>
 
-<pre></code>
-    <a href="#run">SMEMBERS superpowers</a> => 1) "flight", 2) "x-ray vision"
+You can also use [LLEN](#help) to obtain the current length of the list.
+
+<pre><code>
+    <a href="#run">LLEN friends</a> => 6
 </code></pre>
 
-[SUNION](#help) combines two or more sets and returns the list of all elements.
-
-<pre></code>
-    <a href="#run">SADD birdpowers "pecking"</a>
-    <a href="#run">SADD birdpowers "flight"</a>
-    <a href="#run">SUNION superpowers birdpowers</a> => 1) "pecking", 2) "x-ray vision", 3) "flight"
-</code></pre>

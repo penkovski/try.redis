@@ -1,24 +1,23 @@
-The next data structure that we'll look at is a set. A set is similar to a
-list, except it does not have a specific order and each element may only appear
-once. Both the data structures are very useful because while in a list
-is fast to access the elements near the top or the bottom, and the order of
-the elements is preserved, in a set is very fast to test for membership, that
-is, to immediately know if a given element was added or not. Moreover in
-a set a given element can exist only in a single copy.
+So far we explored the commands that let you add elements to the list,
+and [LRANGE](#help) that let you inspect ranges of the list. A fundamental
+functionality of Redis lists is the ability to remove, and return to the
+client at the same time, elements in the head or the tail of the list.
 
-Some of the important commands in working with sets are [SADD](#help), [SREM](#help), [SISMEMBER](#help), [SMEMBERS](#help) and [SUNION](#help).
+[LPOP](#help) removes the first element from the list and returns it.
 
-[SADD](#help) adds the given member to the set, again this command is also variadic.
-
-<pre></code>
-    <a href="#run">SADD superpowers "flight"</a>
-    <a href="#run">SADD superpowers "x-ray vision" "reflexes"</a>
+<pre><code>
+    <a href="#run">LPOP friends</a> => "Sam"
 </code></pre>
 
-[SREM](#help) removes the given member from the set, returning 1 or 0 to signal
-if the member was actually there or not.
+[RPOP](#help) removes the last element from the list and returns it.
 
-<pre></code>
-    <a href="#run">SREM superpowers "reflexes"</a> => 1
-    <a href="#run">SREM superpowers "making pizza"</a> => 0
+<pre><code>
+    <a href="#run">RPOP friends</a> => "3"
+</code></pre>
+
+Note that the list now only has four element:
+
+<pre><code>
+    <a href="#run">LLEN friends</a> => 4
+    <a href="#run">LRANGE friends 0 -1</a> => 1) "Alice" 2) "Bob" 3) "1" 4) "2"
 </code></pre>

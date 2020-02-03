@@ -19,6 +19,4 @@ incrementing the value in this way is not an atomic operation.  Calling the
 [INCR](#help) command in Redis will prevent this from happening, because it *is* an
 atomic operation.
 
-All the Redis operations implemented by single commands are atomic, including the
-ones operating on more complex data structures. So when you use a Redis command that
-modifies some value, you don't have to think about concurrent access.
+All the Redis operations implemented by single commands are atomic, including the ones operating on more complex data structures. So when you use a Redis command that modifies some value, you don't have to think about concurrent access.
