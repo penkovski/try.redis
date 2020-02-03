@@ -1,12 +1,12 @@
 The next data structure that we'll look at is a set. A set is similar to a
 list, except it does not have a specific order and each element may only appear
 once. Both the data structures are very useful because while in a list
-is fast to access the top or bottom elements and order is preserved,
-the set is very fast to test for membership, that is, to immediately return
-if a given element was added or not.
+is fast to access the elements near the top or the bottom, and the order of
+the elements is preserved, in a set is very fast to test for membership, that
+is, to immediately know if a given element was added or not. Moreover in
+a set a given element can exist only in a single copy.
 
-Some of the important commands in working with sets are [SADD](#help), [SREM](#help),
-[SISMEMBER](#help), [SMEMBERS](#help) and [SUNION](#help).
+Some of the important commands in working with sets are [SADD](#help), [SREM](#help), [SISMEMBER](#help), [SMEMBERS](#help) and [SUNION](#help).
 
 [SADD](#help) adds the given member to the set, again this command is also variadic.
 

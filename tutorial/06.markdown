@@ -1,5 +1,4 @@
-Both [RPUSH](#help) and [LPUSH](#help) commands are variadic, so you can specify multiple elements
-in the same command execution.
+Both [RPUSH](#help) and [LPUSH](#help) commands are variadic, so you can specify multiple elements in the same command execution.
 
 <pre><code>
     <a href="#run">RPUSH friends 1 2 3</a> => 6
@@ -14,6 +13,11 @@ You can also use [LLEN](#help) to obtain the current length of the list.
 <pre><code>
     <a href="#run">LLEN friends</a> => 6
 </code></pre>
+
+So far we explored the commands that let you add elements to the list,
+and [LRANGE](#help) that let you inspect ranges of the list. A fundamental
+functionality of Redis lists is the ability to remove, and return to the
+client at the same time, elements in the head or the tail of the list.
 
 [LPOP](#help) removes the first element from the list and returns it.
 
