@@ -18,6 +18,6 @@ Now the set will have just the remaining elements:
 </code></pre>
 
 There is also a command to return random elements without removing such
-elemetns from the set, it is called [SRANDMEMBER](#help). You can try it
+elements from the set, it is called [SRANDMEMBER](#help). You can try it
 yourself, it works just like [SPOP](#help), but if you specify a negative
 count instead of a positive one, it may also return repeating elements.
