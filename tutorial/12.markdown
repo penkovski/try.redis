@@ -19,5 +19,6 @@ Now the set will have just the remaining elements:
 
 There is also a command to return random elements without removing such
 elements from the set, it is called [SRANDMEMBER](#help). You can try it
-yourself, it works just like [SPOP](#help), but if you specify a negative
-count instead of a positive one, it may also return repeating elements.
+yourself, the arguments are similar to [SPOP](#help), but if you specify
+a negative count instead of a positive one, it may also return repeating
+elements.
