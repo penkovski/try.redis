@@ -15,7 +15,7 @@ client at the same time, elements in the head or the tail of the list.
     <a href="#run">RPOP friends</a> => "3"
 </code></pre>
 
-Note that the list now only has four element:
+Note that the list now only has four elements:
 
 <pre><code>
     <a href="#run">LLEN friends</a> => 4
